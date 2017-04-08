@@ -1,5 +1,7 @@
 // BINARY TREES 
 
+var fs = require('fs');
+
 (function(){
 
 var Node = function(val){
@@ -140,11 +142,15 @@ var bt = new BinaryTree();
 var bbt = new BinaryTree(); 
 var nums = []; 
 var num; 
+var nodes = process.argv[2] || 15; 
+
 var calcNum = function(){
 	return Math.floor(Math.random()*1001);  
 }
 
-for(var i = 0; i<process.argv[2]; i++){
+
+
+for(var i = 0; i<nodes; i++){
 	num = calcNum();
 	while(nums.indexOf(num) != -1){
 		num = calcNum(); 
@@ -230,13 +236,42 @@ var toBBST = function(arr, start, end){
 
 bbt.root = toBBST(arr, 0, arr.length - 1); 
 
+fs.writeFile("./tree.js", JSON.stringify(bbt), function(err) {
+    if(err) {
+        return console.log(err);
+    }
+
+    console.log("The file was saved!");
+}); 
+
+
 // print the In Order BST 
 //bfsPrint(bbt);
 
 anotherPrint(bbt);
 
 
+
+// Delete a node 
+
+
+
 })(); 
+
+(function(){
+
+var tree = require("./testTree"); 
+
+console.log("this is tree ", tree);
+
+
+
+})()
+
+
+
+
+
 
 
 
