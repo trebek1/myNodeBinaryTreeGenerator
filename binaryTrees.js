@@ -57,8 +57,6 @@ var calcNum = function(){
 	return Math.floor(Math.random()*1001);  
 }
 
-
-
 for(var i = 0; i<nodes; i++){
 	num = calcNum();
 	while(nums.indexOf(num) != -1){
@@ -163,11 +161,10 @@ anotherPrint(bbt);
 
 })(); 
 
+
 (function(){
 
 var tree = require("./testTree"); 
-
-console.log("printing from part 2  ");
 
 var deleteNode = function(value){
 	var current = tree.root; 
@@ -178,7 +175,7 @@ var deleteNode = function(value){
 		}else if(value > current.value){
 			current = current.right;
 		}else{
-			console.log("HERE!");
+			console.log().log("HERE!");
 			target = current; 
 			if(target.left != null){
 				children++; 
@@ -193,7 +190,7 @@ var deleteNode = function(value){
 }
 // console.log("***********************");
 // anotherPrint(tree);
-deleteNode(502);
+//deleteNode(502);
 // anotherPrint(tree);
 // console.log("***********************");
 
